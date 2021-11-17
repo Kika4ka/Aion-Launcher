@@ -1,18 +1,11 @@
-; BEAUMONT Anthony
-; Xan
-; 16-12-2018
-; ---------------------------------
-; Aion-LIVE Launcher
-; ---------------------------------
-
 [Setup]
-#define AppName "Aion-LIVE Launcher"
-#define OurVersion "1.0.5"
+#define AppName "AionParty Launcher"
+#define OurVersion "1.0a"
 #define Author "Xan"
-#define Website "https://github.com/xan105/Aion-Launcher"
+#define Website "https://github.com/Kika4ka/Aion-Launcher"
 #define DonationURL "https://www.paypal.me/xan105"
-#define VersionURL "https://github.com/xan105/Aion-Launcher/raw/master/setup/version.ini"
-#define Copyright "© 2018-2019"
+#define VersionURL "https://github.com/Kika4ka/Aion-Launcher/raw/master/setup/version.ini"
+#define Copyright "Â© 2021"
 
 ; xp, vista, win7, win8, win8.1, win10
 #define MinWin "win7"
@@ -21,7 +14,7 @@
 #define AppWorkingDir "{app}"
 #define AppIcon "{app}\package\resources\icon\icon.ico"
 
-#define OutputFileName "Aion-LIVE.Launcher.Setup"
+#define OutputFileName "AionParty.Launcher.Setup"
 
 AppId={{20694538-E8BA-4435-8ABA-C47690993043}}
 AppName={#AppName}
@@ -96,7 +89,7 @@ Filename: "{#AppMain}"; WorkingDir: "{#AppWorkingDir}"; Description: "{cm:RunMe,
 Filename: "{#AppMain}"; WorkingDir: "{#AppWorkingDir}"; Parameters: "-noselfupdate"; Description: "{cm:RunMe,{#AppName}}"; Flags: runasoriginaluser nowait skipifnotsilent skipifdoesntexist
 
 [UninstallDelete]
-Type: filesandordirs; Name: "{localappdata}\AION-LIVE"
+Type: filesandordirs; Name: "{localappdata}\AIONPARTY"
 
 [Code]
 
