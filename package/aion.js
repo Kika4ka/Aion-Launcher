@@ -24,9 +24,9 @@ const zip = require(path.resolve("./package/node_modules/adm-zip"));
 const systemCFG = require(path.resolve("./package/systemCFG.js"));
 
 const folder = {
-    download: path.join(win32.path.localappdata,"AION-LIVE/download"),
-    tmp: path.join(win32.path.temp,"AION-LIVE"),
-    defaultDir: path.join(win32.path.localappdata,"AION-LIVE")
+    download: path.join(win32.path.localappdata,"AIONPARTY/download"),
+    tmp: path.join(win32.path.temp,"AIONPARTY"),
+    defaultDir: path.join(win32.path.localappdata,"AIONPARTY")
 }
 
 const debug = new (require(path.resolve("./package/util/log.js")))({
@@ -37,30 +37,30 @@ const debug = new (require(path.resolve("./package/util/log.js")))({
 
 const urls = {
   eu : {
-    base : "http://dl.aion.gameforge.com/aion/AION-LIVE/",
+    base : "http://dl.aion.gameforge.com/aion/AION-LIVE/", //заменить
     fileInfo : (version) => {
-      return `${urls.eu.base}/${version}/Patch/FileInfoMap_AION-LIVE_${version}.dat.zip`;
+      return `${urls.eu.base}/${version}/Patch/FileInfoMap_AION-LIVE_${version}.dat.zip`; //заменить
     },
     torrent : (version) => {
-      return `${urls.eu.base}/${version}/Patch/Full_AION-LIVE_${version}.torrent.zip`;
+      return `${urls.eu.base}/${version}/Patch/Full_AION-LIVE_${version}.torrent.zip`; //заменить
     }
   },
   jp : {
-    base : "http://aionrepository.ncsoft.jp/AION_JP/",
+    base : "http://aionrepository.ncsoft.jp/AION_JP/", //заменить
     fileInfo : (version) => {
-      return `${urls.jp.base}/${version}/Patch/FileInfoMap_AION_JP_${version}.dat.zip`;
+      return `${urls.jp.base}/${version}/Patch/FileInfoMap_AION_JP_${version}.dat.zip`; //заменить
     },
     torrent : (version) => {
-      return `${urls.jp.base}/${version}/Patch/Full_AION_JP_${version}.torrent.zip`;
+      return `${urls.jp.base}/${version}/Patch/Full_AION_JP_${version}.torrent.zip`; //заменить
     }
   },
   na : {
-    base : "http://aion.patcher.ncsoft.com/AION/",
+    base : "http://aion.patcher.ncsoft.com/AION/", //заменить
     fileInfo : (version) => {
-      return `${urls.na.base}/${version}/Patch/FileInfoMap_AION_${version}.dat.zip`;
+      return `${urls.na.base}/${version}/Patch/FileInfoMap_AION_${version}.dat.zip`; //заменить
     },
     torrent : (version) => {
-      return `${urls.na.base}/${version}/Patch/Full_AION_${version}.torrent.zip`;
+      return `${urls.na.base}/${version}/Patch/Full_AION_${version}.torrent.zip`; //заменить
     }
   }  
 };
@@ -71,7 +71,7 @@ function aion(optionFile = path.join(folder.defaultDir,"options.ini")) {
     
   debug.log("STARTING");
     
-  const lang = ["eng","fra","deu","esn","ita","plk"];
+  const lang = ["eng","rus","fra","deu","esn","ita","plk"];
 
   this.aionDir = getAionDirSync();
   this.optionFile = path.resolve(optionFile);
@@ -171,7 +171,7 @@ function aion(optionFile = path.join(folder.defaultDir,"options.ini")) {
 
 function getAionDirSync() {
 
-  let dir = regedit.RegQueryStringValue("HKLM","Software\\Gameforge\\AION-LIVE","BaseDir");
+  let dir = regedit.RegQueryStringValue("HKLM","Software\\Gameforge\\AION-LIVE","BaseDir"); //заменить
   
   if (ffs.sync.exists(dir,true)) { 
     return dir 
@@ -181,10 +181,10 @@ function getAionDirSync() {
      
         const steam_db_id = 261430;
         
-        let steamDir = regedit.RegQueryStringValue("HKLM","Software\\Valve\\Steam","InstallPath"); 
-        let data = fs.readFileSync(path.join(steamDir, "steamapps/libraryfolders.vdf"), "utf8");
+        let steamDir = regedit.RegQueryStringValue("HKLM","Software\\Valve\\Steam","InstallPath");  //заменить
+        let data = fs.readFileSync(path.join(steamDir, "steamapps/libraryfolders.vdf"), "utf8"); //заменить
            
-        if (regedit.RegKeyExists("HKLM","Software\\Valve\\Steam\\apps") === 1) {
+        if (regedit.RegKeyExists("HKLM","Software\\Valve\\Steam\\apps") === 1) { //заменить
             
               let list = steamVDF.parse(data.toString());
 
@@ -422,7 +422,7 @@ async function forcefaststart () {
 
 function getArgs() {
 
-   const HOST = 'update.aion.gfsrv.net';
+   const HOST = 'update.aion.gfsrv.net'; //заменить
    const PORT = 27500;
    const timeout = 600;
    const hex = "0f0002000a0941494f4e2d4c495645";
@@ -476,7 +476,7 @@ aion.prototype.run = async function(credentials = {user: null, password: null}) 
     args = await getArgs();
   }catch(e) {
     debug.log(e);
-    debug.log("args from default");
+    debug.log("args from default"); //разобраться
     args = [    `-ip:79.110.83.80`,
                 `-noweb`,
                 `-noauthgg`,
@@ -627,7 +627,7 @@ aion.prototype.generateDownloadFileList = async function(repairMode, callbackPro
     });
     
     var local_manifest = await new Promise((resolve,reject) => {
-     ffs.promises.readFile(path.join(this.aionDir,"FileInfoMap_AION-LIVE.dat"),'utf16le')
+     ffs.promises.readFile(path.join(this.aionDir,"FileInfoMap_AION-LIVE.dat"),'utf16le') //?
      .then((data) => { return data.slice(1); }) //Remove BOM
      .then((data) => { return parseInfoMap(data) })
      .then((data) => { resolve(data) }) 
@@ -812,7 +812,7 @@ async function updateIniVersion() {
     
       promises[0] = (async () => {
     
-          let iniFile = path.join(this.aionDir,"VersionInfo_AION-LIVE.ini");
+          let iniFile = path.join(this.aionDir,"VersionInfo_AION-LIVE.ini"); //исправить
           let version, flag;
           
             try {
@@ -840,7 +840,7 @@ async function updateIniVersion() {
       
         promises[1] = (async () => {
         
-            let iniFile = path.join(folder.defaultDir,"VersionInfo_AION_JP.ini");
+            let iniFile = path.join(folder.defaultDir,"VersionInfo_AION_JP.ini"); //исправить
             let version, flag;
             
               try {
@@ -876,7 +876,7 @@ async function updateLocalManifest() {
 
           promises[0] = (async () => {
             
-            const filename = `FileInfoMap_AION-LIVE_${this.version.remote}.dat`;
+            const filename = `FileInfoMap_AION-LIVE_${this.version.remote}.dat`; //исправить
             
             let file = path.join(folder.tmp,filename);
             let dest = path.join(this.aionDir,filename.replace(`_${this.version.remote}`,""));
@@ -891,7 +891,7 @@ async function updateLocalManifest() {
         
           promises[1] = (async () => {
             
-            const filename = `FileInfoMap_AION_JP_${this.version.voicepack.remote}.dat`;
+            const filename = `FileInfoMap_AION_JP_${this.version.voicepack.remote}.dat`; //исправить
             
             let file = path.join(folder.tmp,filename);
             let dest = path.join(folder.defaultDir,filename.replace(`_${this.version.voicepack.remote}`,""));
