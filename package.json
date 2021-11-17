@@ -1,7 +1,7 @@
 {
-  "name": "AION-LIVE",
-  "description": "Alternative Launcher for the game Aion",
-  "version": "1.0.5",
+  "name": "AIONPARTY",
+  "description": "Launcher for AionParty",
+  "version": "1.0a",
   "main": "package/init.js",
   "view" : {
     "app" : "package/view/app.html",
@@ -34,8 +34,8 @@
   },
   "selfUpdate": {
     "enable": true,
-    "github": "https://api.github.com/repos/xan105/Aion-Launcher/releases/latest",
-    "name" : "Aion-LIVE.Launcher.Setup.exe"
+    "github": "https://api.github.com/repos/Kika4ka/Aion-Launcher/releases/latest",
+    "name" : "AionParty-Launcher.Setup.exe"
   }, 
   "webkit": {
     "plugin": false
