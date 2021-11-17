@@ -1,9 +1,9 @@
 Description
 -----------
-An alternative launcher for the game Aion with a design inspired by the new NCLauncher 2 from Korea.
+Launcher for AionParty with a design inspired by the new NCLauncher 2 from Korea by Xan.
 
 <p align="center">
-<img src="https://github.com/xan105/Aion-Launcher/raw/master/screenshot/main_no_maintenance.png" width="600px">
+<img src="https://github.com/Kika4ka/Aion-Launcher/raw/master/screenshot/main_no_maintenance.png" width="600px">
 </p>
 
 Version supported:<br/>
@@ -65,10 +65,10 @@ Using wireshark and node net.socket I was able to have the following working :
 Screenshot
 ----------
 
-<img src="https://github.com/xan105/Aion-Launcher/raw/master/screenshot/main_preparing.png"/>
-<img src="https://github.com/xan105/Aion-Launcher/raw/master/screenshot/settings.png"/>
-<img src="https://github.com/xan105/Aion-Launcher/raw/master/screenshot/main_no_maintenance.png">
-<img src="https://github.com/xan105/Aion-Launcher/raw/master/screenshot/editor.png">
+<img src="https://github.com/Kika4ka/Aion-Launcher/raw/master/screenshot/main_preparing.png"/>
+<img src="https://github.com/Kika4ka/Aion-Launcher/raw/master/screenshot/settings.png"/>
+<img src="https://github.com/Kika4ka/Aion-Launcher/raw/master/screenshot/main_no_maintenance.png">
+<img src="https://github.com/Kika4ka/Aion-Launcher/raw/master/screenshot/editor.png">
 
 Legal
 -----
