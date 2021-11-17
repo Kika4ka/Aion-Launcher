@@ -42,8 +42,8 @@ var app = {
             let locale = l10n.lang || aion.options.Aion.language.slice(0,2) || "en";
             $("html").attr("lang",`${locale.toLowerCase()}`);
             
-            $("#menu ul:not(.social) li:nth-child(1) a").attr("href",`https://${locale}.aion.gameforge.com/website/`);
-            $("#menu ul:not(.social) li:nth-child(2) a").attr("href",`https://${locale}.aion.gameforge.com/shop/`);
+            $("#menu ul:not(.social) li:nth-child(1) a").attr("href",`https://${locale}.aion.gameforge.com/website/`); // https://${locale}.aionparty.{domain}/website/
+            $("#menu ul:not(.social) li:nth-child(2) a").attr("href",`https://${locale}.aion.gameforge.com/shop/`);    // https://${locale}.aionparty.{domain}/shop/
 
             $("#dir_select_game").attr("nwworkingdir",aion.aionDir);
             try {
@@ -60,10 +60,10 @@ var app = {
               editor.hide();
             })
 
-            $("#gameforge-news").attr("src",`https:\/\/${locale}.aion.gameforge.com/website/game/slider`);
+            $("#gameforge-news").attr("src",`https:\/\/${locale}.aion.gameforge.com/website/game/slider`); // https:\/\/${locale}.aionparty.{domain}/game/slider
             
             $.ajax({ 
-              url: `https://${locale}.aion.gameforge.com/website/game/announcement/`,
+              url: `https://${locale}.aion.gameforge.com/website/game/announcement/`, // https://${locale}.aionparty.{domain}/game/announcement/
               dataType: 'html',
               ContentType: 'text/html',
               type: 'GET',
@@ -76,7 +76,7 @@ var app = {
             });
 
             $.ajax({ 
-              url: "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?format=json&appid=261430",
+              url: "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?format=json&appid=261430", //steam онлайн на сервере - переписать.
               dataType: 'json',
               ContentType: 'application/json',
               type: 'GET',
@@ -88,7 +88,7 @@ var app = {
               complete: ()=>{}
             });
 
-            tcpp.ping({ address: '79.110.83.80', port: 2106, attempts: 3, timeout: 2000}, (err, data)=>{
+            tcpp.ping({ address: '79.110.83.80', port: 2106, attempts: 3, timeout: 2000}, (err, data)=>{ //статус логин сервера - переписать
                 
                 let elem = $("#home .upper .stats .server .status");
                 
