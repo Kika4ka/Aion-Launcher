@@ -8,7 +8,7 @@
     "updater" : "package/view/updater.html"
    },  
   "window": {
-    "title": "AION-LIVE - Launcher",
+    "title": "AIONPARTY - Launcher",
     "icon": "package/resources/icon/icon.png",
     "frame": false,
     "width": 1200,
